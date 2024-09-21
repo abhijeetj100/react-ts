@@ -3,7 +3,7 @@ import './App.css';
 import Board from './components/TicTacToe/Board';
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  // const [count, setCount] = React.useState(0);
 
   // function handleClick(){
   //   setCount(count+1);

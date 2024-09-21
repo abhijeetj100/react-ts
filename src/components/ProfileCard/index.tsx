@@ -35,7 +35,7 @@ export default function ProfileCard() {
     }
     else {
         title = <h1>John Doe</h1>;
-        image = <img src="https://www.shutterstock.com/shutterstock/photos/2061533240/display_1500/stock-photo-mountain-view-california-oct" alt="Profile Picture" />;
+        image = <img src="https://www.shutterstock.com/shutterstock/photos/2061533240/display_1500/stock-photo-mountain-view-california-oct" alt="Profile" />;
     }
     return (
         <div>
