@@ -5,7 +5,7 @@ import { Button } from "antd";
 export default function Board(){
     const [currentMove, setCurrentMove] = useState(0);
 
-    const IsXNext = currentMove % 2 == 0;
+    const IsXNext = currentMove % 2 === 0;
 
     const [history, setHistory] = useState<Array<Array<String | null>>>([Array(9).fill(null)]);
 
@@ -41,7 +41,7 @@ export default function Board(){
         if(squaresCopy[i] || calculateWinner()){
             return;
         }
-        squaresCopy[i] = `IsXNext` ? 'X' : 'O';
+        squaresCopy[i] = IsXNext ? 'X' : 'O';
         const currentHistory = history.slice(0, currentMove+1);
         currentHistory.push(squaresCopy);
         setHistory(currentHistory);
