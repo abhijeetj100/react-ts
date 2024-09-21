@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Square from "../Square";
+import { Button } from "antd";
 
 export default function Board(){
-    const [squares, setSquares] = useState<Array<String | null>>(Array(9).fill(null));
-    const [isXNext, setIsXNext] = useState(true);
+    const [currentMove, setCurrentMove] = useState(0);
+
+    const IsXNext = currentMove % 2 == 0;
+
+    const [history, setHistory] = useState<Array<Array<String | null>>>([Array(9).fill(null)]);
+
+    const currentState = history[currentMove];
 
     const calculateWinner = () => {
         const lines = [
@@ -21,8 +27,8 @@ export default function Board(){
             console.log("called");
             const [a, b, c] = lines[i];
 
-            if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
-                return squares[a];
+            if(currentState[a] && currentState[a] === currentState[b] && currentState[a] === currentState[c]){
+                return currentState[a];
             }
 
         }
@@ -31,13 +37,15 @@ export default function Board(){
     }
 
     const handleClick = (i: number) => {
-        const squaresCopy = squares.slice();
+        const squaresCopy = currentState.slice();
         if(squaresCopy[i] || calculateWinner()){
             return;
         }
-        squaresCopy[i] = isXNext ? 'X' : 'O';
-        setSquares(squaresCopy);
-        setIsXNext(!isXNext);
+        squaresCopy[i] = `IsXNext` ? 'X' : 'O';
+        const currentHistory = history.slice(0, currentMove+1);
+        currentHistory.push(squaresCopy);
+        setHistory(currentHistory);
+        setCurrentMove(currentMove + 1);
     }
 
     const status = () => {
@@ -47,24 +55,41 @@ export default function Board(){
         }
     }
 
+    const jumpTo = (step: number) => {
+        setCurrentMove(step);
+    }
+
+    const moves = history.map((squares, move) => {
+        const desc = move ? "Go to move #" + move : "Go to game start";
+        return (
+            <li key={move}>
+                <Button onClick={() => jumpTo(move)}>{desc}</Button>
+            </li>
+        )
+    })
+
     return (
         <>
             <div className='board-row'>
-                <Square value={squares[0]} OnSquareClicked={() => handleClick(0)} />
-                <Square value={squares[1]} OnSquareClicked={() => handleClick(1)} />
-                <Square value={squares[2]} OnSquareClicked={() => handleClick(2)} />
+                <Square value={currentState[0]} OnSquareClicked={() => handleClick(0)} />
+                <Square value={currentState[1]} OnSquareClicked={() => handleClick(1)} />
+                <Square value={currentState[2]} OnSquareClicked={() => handleClick(2)} />
             </div>
             <div className='board-row'>
-                <Square value={squares[3]} OnSquareClicked={() => handleClick(3)} />
-                <Square value={squares[4]} OnSquareClicked={() => handleClick(4)} />
-                <Square value={squares[5]} OnSquareClicked={() => handleClick(5)} />
+                <Square value={currentState[3]} OnSquareClicked={() => handleClick(3)} />
+                <Square value={currentState[4]} OnSquareClicked={() => handleClick(4)} />
+                <Square value={currentState[5]} OnSquareClicked={() => handleClick(5)} />
             </div>
             <div className='board-row'>
-                <Square value={squares[6]} OnSquareClicked={() => handleClick(6)} />
-                <Square value={squares[7]} OnSquareClicked={() => handleClick(7)} />
-                <Square value={squares[8]} OnSquareClicked={() => handleClick(8)} />
+                <Square value={currentState[6]} OnSquareClicked={() => handleClick(6)} />
+                <Square value={currentState[7]} OnSquareClicked={() => handleClick(7)} />
+                <Square value={currentState[8]} OnSquareClicked={() => handleClick(8)} />
             </div>
         <div>{status()}</div>
+        <h3>Game Moves:</h3>
+        <ol>
+            {moves}
+        </ol>
         </>
     )
 }
