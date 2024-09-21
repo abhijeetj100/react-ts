@@ -24,7 +24,7 @@ export default function ProfileCard() {
     let title: JSX.Element | null;
     let image: JSX.Element | null;
     let productsList: JSX.Element[] = products.map((product) => <li key={product.id} style={{ color: product.isFruit ? 'red' : 'green' }}>{product.title}</li>);
-    if (user.name.length != 0) {
+    if (user.name.length !== 0) {
         title = <h1>{user.name}</h1>;
         image = <img
             className="avatar"
@@ -35,7 +35,7 @@ export default function ProfileCard() {
     }
     else {
         title = <h1>John Doe</h1>;
-        image = <img src="https://www.shutterstock.com/shutterstock/photos/2061533240/display_1500/stock-photo-mountain-view-california-oct" />;
+        image = <img src="https://www.shutterstock.com/shutterstock/photos/2061533240/display_1500/stock-photo-mountain-view-california-oct" alt="Profile" />;
     }
     return (
         <div>

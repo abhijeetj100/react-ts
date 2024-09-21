@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Square from "../Square";
-import { nextTick } from "process";
 
 export default function Board(){
     const [squares, setSquares] = useState<Array<String | null>>(Array(9).fill(null));
@@ -22,7 +21,7 @@ export default function Board(){
             console.log("called");
             const [a, b, c] = lines[i];
 
-            if(squares[a] && squares[a] == squares[b] && squares[a] == squares[c]){
+            if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
                 return squares[a];
             }
 
