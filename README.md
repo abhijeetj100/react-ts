@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+[![CodeFactor](https://www.codefactor.io/repository/github/abhijeetj100/react-ts/badge)](https://www.codefactor.io/repository/github/abhijeetj100/react-ts)
+
+# Getting Started with Create React App with typescript:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
