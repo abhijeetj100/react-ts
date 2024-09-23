@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Board from './components/TicTacToe/Board';
+import FilterableProductTable from './components/FilterableProductTable';
 
 function App() {
   // const [count, setCount] = React.useState(0);
@@ -18,7 +19,8 @@ function App() {
       <ProfileCard />
       <br/> */}
       {/* <TicTacToe /> */}
-      <Board />
+      {/* <Board /> */}
+      <FilterableProductTable />
     </div>
   );
 }
