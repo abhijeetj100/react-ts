@@ -20,8 +20,8 @@ jobs:
       id: get-version
       run: echo ::set-output name=node::$(jq -r .engines.node ./package.json)
     - name: Print node version
-      run: echo ${{ steps.get-version.output.node }}
-    - name: Use Node.js ${{ steps.get-version.output.node }}
+      run: echo ${{ steps.get-version.outputs.node }}
+    - name: Use Node.js ${{ steps.get-version.outputs.node }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ steps.get-version.output.node }}
