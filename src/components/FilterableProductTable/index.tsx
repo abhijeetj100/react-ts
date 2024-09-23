@@ -1,12 +1,12 @@
 import ProductTable from "./ProductTable";
 import SearchTable from "./SearchBar";
 
-interface IProduct{
-    category: string;
-    price: string;
-    stocked: boolean;
-    name: string;
-}
+// interface IProduct{
+//     category: string;
+//     price: string;
+//     stocked: boolean;
+//     name: string;
+// }
 
 // const ProductData: IProduct[] = [
 //     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
