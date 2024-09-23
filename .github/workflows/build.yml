@@ -24,7 +24,7 @@ jobs:
     - name: Use Node.js ${{ steps.get-version.outputs.node }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ steps.get-version.output.node }}
+        node-version: ${{ steps.get-version.outputs.node }}
         cache: 'yarn'
     - run: yarn install
     - run: yarn build
