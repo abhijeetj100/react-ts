@@ -1,17 +1,17 @@
-import { useState } from "react"
-import Square from "../Square"
-import { Button } from "antd"
+import { useState } from "react";
+import { Button } from "antd";
+import Square from "../Square";
 
 export default function Board() {
-    const [currentMove, setCurrentMove] = useState(0)
+    const [currentMove, setCurrentMove] = useState(0);
 
-    const IsXNext = currentMove % 2 === 0
+    const IsXNext = currentMove % 2 === 0;
 
-    const [history, setHistory] = useState<Array<Array<String | null>>>([
+    const [history, setHistory] = useState<Array<Array<string | null>>>([
         Array(9).fill(null),
-    ])
+    ]);
 
-    const currentState = history[currentMove]
+    const currentState = history[currentMove];
 
     const calculateWinner = () => {
         const lines = [
@@ -23,54 +23,55 @@ export default function Board() {
             [2, 5, 8],
             [0, 4, 8],
             [2, 4, 6],
-        ]
+        ];
 
         for (let i = 0; i < lines.length; i++) {
-            console.log("called")
-            const [a, b, c] = lines[i]
+            console.log("called");
+            const [a, b, c] = lines[i];
 
             if (
                 currentState[a] &&
                 currentState[a] === currentState[b] &&
                 currentState[a] === currentState[c]
             ) {
-                return currentState[a]
+                return currentState[a];
             }
         }
-        return null
-    }
+        return null;
+    };
 
     const handleClick = (i: number) => {
-        const squaresCopy = currentState.slice()
+        const squaresCopy = currentState.slice();
         if (squaresCopy[i] || calculateWinner()) {
-            return
+            return;
         }
-        squaresCopy[i] = IsXNext ? "X" : "O"
-        const currentHistory = history.slice(0, currentMove + 1)
-        currentHistory.push(squaresCopy)
-        setHistory(currentHistory)
-        setCurrentMove(currentMove + 1)
-    }
+        squaresCopy[i] = IsXNext ? "X" : "O";
+        const currentHistory = history.slice(0, currentMove + 1);
+        currentHistory.push(squaresCopy);
+        setHistory(currentHistory);
+        setCurrentMove(currentMove + 1);
+    };
 
     const status = () => {
-        const winner = calculateWinner()
+        const winner = calculateWinner();
         if (winner) {
-            return `Winner is ${winner}`
+            return `Winner is ${winner}`;
         }
-    }
+        return "";
+    };
 
     const jumpTo = (step: number) => {
-        setCurrentMove(step)
-    }
+        setCurrentMove(step);
+    };
 
     const moves = history.map((squares, move) => {
-        const desc = move ? "Go to move #" + move : "Go to game start"
+        const desc = move ? `Go to move #${move}` : "Go to game start";
         return (
             <li key={move}>
                 <Button onClick={() => jumpTo(move)}>{desc}</Button>
             </li>
-        )
-    })
+        );
+    });
 
     return (
         <>
@@ -120,5 +121,5 @@ export default function Board() {
             <h3>Game Moves:</h3>
             <ol>{moves}</ol>
         </>
-    )
+    );
 }

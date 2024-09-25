@@ -1,6 +1,7 @@
 import "./App.css"
 import { ConfigProvider, theme } from "antd"
 import FilterableProductTable from "./components/FilterableProductTable"
+import "./App.css";
 
 function App() {
     return (
@@ -17,7 +18,7 @@ function App() {
         </Space> */}
             </ConfigProvider>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
