@@ -1,24 +1,29 @@
-import { Button, Checkbox, Input } from "antd"
-import { useState } from "react"
-import type { ButtonProps, CheckboxProps, InputProps } from "antd"
+import { Button, Checkbox, Input } from "antd";
+import { useState } from "react";
+import type { ButtonProps, CheckboxProps, InputProps } from "antd";
 
 export default function SearchTable() {
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(false);
 
-    const [searchVal, setSearchVal] = useState("")
+    const [searchVal, setSearchVal] = useState("");
 
     const onChange: CheckboxProps["onChange"] = (e) => {
-        setChecked(e.target.checked)
-    }
+        setChecked(e.target.checked);
+    };
 
-    const OnSearchClicked: ButtonProps["onClick"] = (e) => {
-        console.log(checked)
-    }
+    const OnSearchClicked: ButtonProps["onClick"] = () => {
+        console.log(checked);
+    };
 
+    /**
+     * Handles the input event for the search bar.
+     *
+     * @param e - The input event object of type React.FormEvent<HTMLInputElement>.
+     */
     const OnSearchInput: InputProps["onInput"] = (e: any) => {
-        console.log(e.target.value)
-        setSearchVal(e.target.value)
-    }
+        console.log(e.target.value);
+        setSearchVal(e.target.value);
+    };
 
     return (
         <div
@@ -53,5 +58,5 @@ export default function SearchTable() {
                 Only show products in stock
             </Checkbox>
         </div>
-    )
+    );
 }

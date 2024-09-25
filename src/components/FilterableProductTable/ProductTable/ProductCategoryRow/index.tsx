@@ -25,5 +25,5 @@ export default function ProductCategoryRow({ category }: { category: string }) {
                 </span>
             </div>
         </div>
-    )
+    );
 }

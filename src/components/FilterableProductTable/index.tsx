@@ -1,12 +1,6 @@
-import ProductTable from "./ProductTable"
-import SearchTable from "./SearchBar"
-
-export interface IProduct {
-    category: string
-    price: string
-    stocked: boolean
-    name: string
-}
+import { IProduct } from "./model";
+import ProductTable from "./ProductTable";
+import SearchTable from "./SearchBar";
 
 const ProductData: IProduct[] = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -15,7 +9,7 @@ const ProductData: IProduct[] = [
     { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
     { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
     { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
-]
+];
 
 export default function FilterableProductTable() {
     return (
@@ -27,5 +21,5 @@ export default function FilterableProductTable() {
             <SearchTable />
             <ProductTable ProductData={ProductData} />
         </div>
-    )
+    );
 }

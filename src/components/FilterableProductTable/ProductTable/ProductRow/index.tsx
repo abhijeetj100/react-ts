@@ -1,7 +1,7 @@
-import { IProduct } from "../.."
+import { IProduct } from "../../model";
 
 export default function ProductRow({ product }: { product: IProduct }) {
-    console.log(product)
+    console.log(product);
     return (
         <div
             style={{
@@ -26,5 +26,5 @@ export default function ProductRow({ product }: { product: IProduct }) {
                 {product.stocked ? "True" : "False"}
             </span>
         </div>
-    )
+    );
 }

@@ -1,7 +1,6 @@
-import "./App.css"
-import { ConfigProvider, theme } from "antd"
-import FilterableProductTable from "./components/FilterableProductTable"
 import "./App.css";
+import { ConfigProvider, theme } from "antd";
+import FilterableProductTable from "./components/FilterableProductTable";
 
 function App() {
     return (
