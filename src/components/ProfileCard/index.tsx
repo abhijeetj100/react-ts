@@ -1,6 +1,3 @@
-// import { Card } from "antd";
-
-
 const user = {
     name: "Iron Man",
     imgSrc: "https://www.shutterstock.com/shutterstock/photos/2061533240/display_1500/stock-photo-mountain-view-california-october-iron-man-cardstock-mask-of-marvel-book-character-2061533240.jpg",
