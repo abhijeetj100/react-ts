@@ -1,13 +1,13 @@
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
-import react from 'eslint-plugin-react';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
-import reactHooks from 'eslint-plugin-react-hooks';
-import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
+import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
+import react from "eslint-plugin-react";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
+import tsParser from "@typescript-eslint/parser";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import js from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,19 +20,19 @@ const compat = new FlatCompat({
 export default [
     ...fixupConfigRules(
         compat.extends(
-            'airbnb',
-            'plugin:prettier/recommended',
-            'plugin:react/recommended',
-            'plugin:@typescript-eslint/recommended',
+            "airbnb",
+            "plugin:prettier/recommended",
+            "plugin:react/recommended",
+            "plugin:@typescript-eslint/recommended",
             // 'prettier',
-            'plugin:import/typescript'
+            "plugin:import/typescript"
         )
     ),
     {
         plugins: {
             react: fixupPluginRules(react),
-            '@typescript-eslint': fixupPluginRules(typescriptEslint),
-            'react-hooks': fixupPluginRules(reactHooks),
+            "@typescript-eslint": fixupPluginRules(typescriptEslint),
+            "react-hooks": fixupPluginRules(reactHooks),
         },
 
         languageOptions: {
@@ -43,7 +43,7 @@ export default [
 
             parser: tsParser,
             ecmaVersion: 12,
-            sourceType: 'module',
+            sourceType: "module",
 
             parserOptions: {
                 ecmaFeatures: {
@@ -53,43 +53,43 @@ export default [
         },
 
         settings: {
-            'import/resolver': {
+            "import/resolver": {
                 typescript: {},
             },
         },
 
         rules: {
-            'no-use-before-define': 'off',
-            '@typescript-eslint/no-use-before-define': ['error'],
+            "no-use-before-define": "off",
+            "@typescript-eslint/no-use-before-define": ["error"],
 
-            'react/jsx-filename-extension': [
-                'warn',
+            "react/jsx-filename-extension": [
+                "warn",
                 {
-                    extensions: ['.tsx'],
+                    extensions: [".tsx"],
                 },
             ],
 
-            'import/extensions': [
-                'error',
-                'ignorePackages',
+            "import/extensions": [
+                "error",
+                "ignorePackages",
                 {
-                    ts: 'never',
-                    tsx: 'never',
+                    ts: "never",
+                    tsx: "never",
                 },
             ],
 
-            'no-shadow': 'off',
-            '@typescript-eslint/no-shadow': ['error'],
+            "no-shadow": "off",
+            "@typescript-eslint/no-shadow": ["error"],
 
-            '@typescript-eslint/explicit-function-return-type': [
-                'off',
+            "@typescript-eslint/explicit-function-return-type": [
+                "off",
                 {
                     allowExpressions: true,
                 },
             ],
 
-            'max-len': [
-                'warn',
+            "max-len": [
+                "warn",
                 {
                     code: 100,
                     ignoreComments: true,
@@ -97,21 +97,21 @@ export default [
                 },
             ],
 
-            'react-hooks/rules-of-hooks': 'error',
-            'react-hooks/exhaustive-deps': 'warn',
-            'import/prefer-default-export': 'off',
-            'react/prop-types': 'off',
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
+            "import/prefer-default-export": "off",
+            "react/prop-types": "off",
 
-            'prettier/prettier': [
-                'error',
+            "prettier/prettier": [
+                "error",
                 {
-                    endOfLine: 'auto',
+                    endOfLine: "auto",
                 },
             ],
-            indent: 'off',
-            'react/react-in-jsx-scope': 'off',
-            'no-plusplus': 'off',
-            'react/no-array-index-key': 'off',
+            indent: "off",
+            "react/react-in-jsx-scope": "off",
+            "no-plusplus": "off",
+            "react/no-array-index-key": "off",
         },
     },
 ];
