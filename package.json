@@ -27,7 +27,10 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "reformat-react": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,css,scss,md}'",
-        "reformat-all": "prettier --write ."
+        "reformat-all": "prettier --write .",
+        "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\" --config ./.prettierrc.json"
     },
     "eslintConfig": {
         "extends": [
@@ -48,7 +51,23 @@
         ]
     },
     "devDependencies": {
+        "@eslint/compat": "^1.1.1",
+        "@eslint/eslintrc": "^3.1.0",
+        "@eslint/js": "^9.11.1",
         "@types/lodash-es": "^4.17.12",
-        "prettier": "^3.3.3"
+        "@typescript-eslint/eslint-plugin": "^8.7.0",
+        "@typescript-eslint/parser": "^8.7.0",
+        "eslint": "^9.11.1",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.3",
+        "eslint-plugin-import": "^2.30.0",
+        "eslint-plugin-jsx-a11y": "^6.10.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-react": "^7.36.1",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "globals": "^15.9.0",
+        "prettier": "^3.3.3",
+        "typescript-eslint": "^8.7.0"
     }
 }

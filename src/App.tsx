@@ -1,6 +1,6 @@
-import React from "react"
-import "./App.css"
-import Board from "./components/TicTacToe/Board"
+import React from "react";
+import "./App.css";
+import Board from "./components/TicTacToe/Board";
 
 function App() {
     // const [count, setCount] = React.useState(0);
@@ -20,7 +20,7 @@ function App() {
             {/* <TicTacToe /> */}
             <Board />
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
