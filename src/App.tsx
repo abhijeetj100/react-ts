@@ -1,23 +1,23 @@
-import './App.css';
-import { ConfigProvider, theme } from 'antd';
-import FilterableProductTable from './components/FilterableProductTable';
+import "./App.css"
+import { ConfigProvider, theme } from "antd"
+import FilterableProductTable from "./components/FilterableProductTable"
 
 function App() {
-  return (
-    <div className="App">
-      <ConfigProvider
-        theme={{
-          algorithm: theme.defaultAlgorithm,
-        }}
-      >
-        <FilterableProductTable />
-        {/* <Space>
+    return (
+        <div className="App">
+            <ConfigProvider
+                theme={{
+                    algorithm: theme.defaultAlgorithm,
+                }}
+            >
+                <FilterableProductTable />
+                {/* <Space>
           <Input placeholder="Please Input" />
           <Button type="primary">Submit</Button>
         </Space> */}
-      </ConfigProvider>
-    </div>
-  );
+            </ConfigProvider>
+        </div>
+    )
 }
 
-export default App;
+export default App
