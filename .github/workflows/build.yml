@@ -4,28 +4,28 @@
 name: Build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Get Node version from package.json
-      id: get-version
-      run: echo ::set-output name=node::$(jq -r .engines.node ./package.json)
-    - name: Print node version
-      run: echo ${{ steps.get-version.outputs.node }}
-    - name: Use Node.js ${{ steps.get-version.outputs.node }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ steps.get-version.outputs.node }}
-        cache: 'yarn'
-    - run: yarn install
-    - run: yarn build
-    # - run: yarn test
+        steps:
+            - uses: actions/checkout@v4
+            - name: Get Node version from package.json
+              id: get-version
+              run: echo ::set-output name=node::$(jq -r .engines.node ./package.json)
+            - name: Print node version
+              run: echo ${{ steps.get-version.outputs.node }}
+            - name: Use Node.js ${{ steps.get-version.outputs.node }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ steps.get-version.outputs.node }}
+                  cache: "yarn"
+            - run: yarn install
+            - run: yarn build
+            - run: yarn prettier -c .
+        # - run: yarn test

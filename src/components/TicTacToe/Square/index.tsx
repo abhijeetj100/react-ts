@@ -1,9 +1,16 @@
-import { Button } from 'antd';
-import { MouseEventHandler } from 'react';
+import { Button } from "antd"
+import { MouseEventHandler } from "react"
 
-export default function Square({value, OnSquareClicked}: {value: String | null, OnSquareClicked: MouseEventHandler<HTMLButtonElement>}){
-    
+export default function Square({
+    value,
+    OnSquareClicked,
+}: {
+    value: String | null
+    OnSquareClicked: MouseEventHandler<HTMLButtonElement>
+}) {
     return (
-        <Button className='square'  onClick={OnSquareClicked}>{value || ""}</Button>
+        <Button className="square" onClick={OnSquareClicked}>
+            {value || ""}
+        </Button>
     )
 }
