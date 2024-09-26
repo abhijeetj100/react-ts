@@ -11,10 +11,6 @@ function App() {
                 }}
             >
                 <FilterableProductTable />
-                {/* <Space>
-          <Input placeholder="Please Input" />
-          <Button type="primary">Submit</Button>
-        </Space> */}
             </ConfigProvider>
         </div>
     );

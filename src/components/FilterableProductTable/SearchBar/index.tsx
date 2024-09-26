@@ -15,11 +15,6 @@ export default function SearchTable() {
         console.log(checked);
     };
 
-    /**
-     * Handles the input event for the search bar.
-     *
-     * @param e - The input event object of type React.FormEvent<HTMLInputElement>.
-     */
     const OnSearchInput: InputProps["onInput"] = (e: any) => {
         console.log(e.target.value);
         setSearchVal(e.target.value);
