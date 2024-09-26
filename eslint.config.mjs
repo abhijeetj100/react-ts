@@ -112,6 +112,7 @@ export default [
             "react/react-in-jsx-scope": "off",
             "no-plusplus": "off",
             "react/no-array-index-key": "off",
+            "@typescript-eslint/no-explicit-any": "warn",
         },
     },
 ];
